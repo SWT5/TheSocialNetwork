@@ -58,7 +58,7 @@ namespace TheSocialNetwork.Controllers
             }
             catch
             {
-                return View();
+                return View(feed);
             }
         }
 
