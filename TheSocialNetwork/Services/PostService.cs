@@ -20,11 +20,16 @@ namespace TheSocialNetwork.Services
             _Post = database.GetCollection<Post>("posts");
         }
 
-        public List<Post> Get() =>
-            _Post.Find(post => true).ToList();
+        public List<Post> Get()
+        {
+            return _Post.Find(post => true).ToList();
+        }
 
-        public Post Get(string id) =>
-            _Post.Find<Post>(post => post.PostID == id).FirstOrDefault();
+        public Post Get(string id)
+        {
+            return _Post.Find<Post>(post => post.PostID == id).FirstOrDefault();
+
+        }
 
         public Post Create(Post post)
         {
