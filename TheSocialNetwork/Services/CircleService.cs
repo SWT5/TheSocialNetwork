@@ -23,10 +23,15 @@ namespace TheSocialNetwork.Services
 
 
         //Different get methods************************
-        public List<Circle> Get() => _circles.Find(circle => true).ToList();
+        public List<Circle> Get()
+        {
+            return _circles.Find(circle => true).ToList();
+        }
 
-        public Circle Get(string circleId) =>
-            _circles.Find<Circle>(circle => circle.CircleId == circleId).FirstOrDefault();
+        public Circle Get(string circleId)
+        {
+            return _circles.Find(circle => circle.CircleId == circleId).FirstOrDefault();
+        }
 
 
 
@@ -39,8 +44,8 @@ namespace TheSocialNetwork.Services
 
 
         //Different Update methods************************
-        public void Update(string circleId, Circle circleIn) =>
-            _circles.ReplaceOne(circle => circle.CircleId == circleId, circleIn);
+        public void Update(string id, Circle circleIn) =>
+            _circles.ReplaceOne(circle => circle.CircleId == id, circleIn);
 
 
         //Different Remove methods************************

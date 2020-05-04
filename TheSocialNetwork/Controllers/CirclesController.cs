@@ -26,7 +26,7 @@ namespace TheSocialNetwork.Controllers
         }
 
         // GET: Cicles/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
             return View();
         }
@@ -40,14 +40,23 @@ namespace TheSocialNetwork.Controllers
         // POST: Cicles/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Circle circles)
+        public ActionResult Create(Circle circle)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _circleService.Create(circles);
+                _circleService.Create(circle); 
                 return RedirectToAction(nameof(Index));
             }
-            return View(circles);
+            catch
+            {
+                return View();
+            }
+            //if (ModelState.IsValid)
+            //{
+            //    _circleService.Create(circle);
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //return View(circle);
         }
 
         // GET: Cicles/Edit/5
@@ -71,16 +80,13 @@ namespace TheSocialNetwork.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(string id, Circle circle)
         {
-            if (id != circle.CircleId)
+            try
             {
-                return NotFound();
-            }
-            if (ModelState.IsValid)
-            {
+                circle.CircleId = id; 
                 _circleService.Update(id, circle);
                 return RedirectToAction(nameof(Index));
             }
-            else
+            catch
             {
                 return View(circle);
             }

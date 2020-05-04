@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<TheSocialNetwork.Models.Circle>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Circles";
 }
 
 <h1>Index</h1>
@@ -15,27 +15,23 @@
             <th>
                 @Html.DisplayNameFor(model => model.CircleName)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Users)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model) {
+@foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.CircleName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Users)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CircleId }) |
-                @*@Html.ActionLink("Details", "Details", new { id = item.CircleId }) |*@
+                @Html.ActionLink("Edit", "Edit", new { id = item.CircleId}) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.CircleId })
             </td>
         </tr>
-        }
+}
     </tbody>
 </table>
