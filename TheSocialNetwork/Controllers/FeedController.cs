@@ -41,7 +41,12 @@ namespace TheSocialNetwork.Controllers
 
         // GET: Feed/Create
         public ActionResult Create()
-        {
+        { if (ModelState.IsValid)
+            {
+                FeedService.Create(feed);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(feed);
             return View();
         }
 
