@@ -12,9 +12,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.FeedID)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Logged_In_User_Id)
             </th>
@@ -24,14 +24,14 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.FeedID)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Logged_In_User_Id)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.FeedID }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.FeedID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.FeedID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.FeedID })
             </td>
