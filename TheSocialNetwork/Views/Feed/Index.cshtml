@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TheSocialNetwork.Models.Feed>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.FeedID)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Logged_In_User_Id)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.FeedID)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Logged_In_User_Id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FeedID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FeedID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FeedID })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
